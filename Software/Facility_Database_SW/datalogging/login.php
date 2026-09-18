@@ -162,10 +162,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
         
         <div class="default-creds">
-            <strong>Default Admin Credentials:</strong>
-            Username: admin<br>
-            Password: admin123<br>
-            <em>(Please change after first login)</em>
+            
         </div>
         
         <div style="text-align: center; margin-top: 15px; font-size: 13px;">
