@@ -9,6 +9,8 @@ file.
 2023 06 07   Updated for Amilia integration
 2023 06 15   Bug fix #31
 2023 08 01   Updated webhooks for Amilia (events are: amilia...)
+2026 09 18   amiliaGetPackagesByClientID now returns list of membership ids
+             and either "Active Membership" or "Not a Member"
 
 {
     "event": "RFIDLogging",
@@ -104,16 +106,15 @@ file.
     "requestType": "GET",
     "noDefaults": true,
     "rejectUnauthorized": true,
-    "responseTemplate": " {{Skills.0.Name}} |\n {{Skills.1.Name}} |\n {{Skills.2.Name}} |\n {{Skills.3.Name}} |\n {{Skills.4.Name}} |\n {{Skills.5.Name}} |\n {{Skills.6.Name}} |\n {{Skills.7.Name}} |\n {{Skills.8.Name}} |\n {{Skills.9.Name}} |\n {{Skills.10.Name}} |\n {{Skills.11.Name}} |\n {{Skills.12.Name}} |\n {{Skills.13.Name}} |\n {{Skills.14.Name}} |\n {{Skills.15.Name}} |\n {{Skills.16.Name}} |\n  \nEndOfPackages\n\n",
+    "responseTemplate": "{{Memberships.0.Id}}|\n{{Memberships.1.Id}}|\n{{Memberships.2.Id}}|\n{{Memberships.3.Id}}|\n{{Memberships.4.Id}}|\n{{#Memberships}}Active Member{{/Memberships}}{{^Memberships}}Not a Member{{/Memberships}}|\nEndOfPackages\n\n",
+    "unchunked": false,
+    "data_url_response_event": false,
     "headers": {
         "X-Amilia-Origin": "MakerNexus",
         "Accept": "application/json",
         "Authorization": "Bearer {{{access_token}}}"
     },
-    "todayCounters": {
-        "date": "20230801",
-        "success": 2
-    }
+    "product_ids": []
 }
 
 
